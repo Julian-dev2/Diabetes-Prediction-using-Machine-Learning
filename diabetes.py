@@ -25,7 +25,7 @@ accuracy = metrics.accuracy_score(y_test,y_pred)
 
 
 # project title & icon
-st.set_page_config(page_title='Diabetes Prediction', page_icon=':mag:')
+st.set_page_config(page_title='Diabetes Prediction', page_icon=':dna:')
 st.markdown(f'<h1 style="text-align: center;">Diabetes Prediction</h1>', unsafe_allow_html=True)
 
 col1, col2 = st.columns(2, gap='large')
