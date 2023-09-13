@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import OrdinalEncoder
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
 import streamlit as st
 import warnings
@@ -19,7 +19,7 @@ x= df.drop("diabetes",axis=1)
 y=df["diabetes"]
 x_train , x_test , y_train, y_test = train_test_split(x,y,test_size=0.3)
 
-model = GradientBoostingClassifier().fit(x_train,y_train)
+model = RandomForestClassifier().fit(x_train,y_train)
 y_pred = model.predict(x_test)
 accuracy = metrics.accuracy_score(y_test,y_pred)
 
@@ -64,8 +64,8 @@ if submit:
     test_result = model.predict(user_data)
 
     if test_result[0] == 0:
-        st.success('Result: Negative')
+        st.success('Diabetes Result: Negative')
         st.balloons()
 
     else:
-        st.error('Result: Positive')
+        st.error('Diabetes Result: Positive')
