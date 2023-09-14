@@ -8,17 +8,26 @@ import streamlit as st
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning)
 
-# dataset
+# dataset from my Github
 df=pd.read_csv("https://raw.githubusercontent.com/gopiashokan/dataset/main/diabetes_prediction_dataset.csv")
 
+
+# Preprocessing using Ordinal Encoder
 enc=OrdinalEncoder()
 df["smoking_history"]=enc.fit_transform(df[["smoking_history"]])
 df["gender"]=enc.fit_transform(df[["gender"]])
 
+
+# Define Independent and Dependent Variables
 x= df.drop("diabetes",axis=1)
 y=df["diabetes"]
+
+
+# 70% data - Train and 30% data - Test
 x_train , x_test , y_train, y_test = train_test_split(x,y,test_size=0.3)
 
+
+# RandomForest Algorithm
 model = RandomForestClassifier().fit(x_train,y_train)
 y_pred = model.predict(x_test)
 accuracy = metrics.accuracy_score(y_test,y_pred)
@@ -44,8 +53,9 @@ with col1:
 
 with col2:
     smoking_history = st.selectbox(label='Smoking History', 
-                                options=['Never', 'Current', 'Former', 'Ever', 'Not Current', 'No Info'])
-    smoking_history_dict = {'Never':4.0, 'No Info':0.0, 'Current':1.0, 'Former':3.0, 'Ever':2.0, 'Not Current':5.0}
+                                   options=['Never', 'Current', 'Former', 'Ever', 'Not Current', 'No Info'])
+    smoking_history_dict = {'Never':4.0, 'No Info':0.0, 'Current':1.0, 
+                            'Former':3.0, 'Ever':2.0, 'Not Current':5.0}
 
     bmi = st.text_input(label='BMI')
 
