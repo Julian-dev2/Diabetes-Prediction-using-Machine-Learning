@@ -8,6 +8,31 @@ import streamlit as st
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning)
 
+
+def streamlit_config():
+    # streamlit 
+    st.set_page_config(page_title='Diabetes Prediction', page_icon=':dna:')
+
+    # page background color
+    page_background_color = """
+    <style>
+
+    [data-testid="stAppViewContainer"] {
+    # background-color: rgba(14,17,23,255);
+    }
+
+    [data-testid="stHeader"] {
+    background: rgba(0,0,0,0);
+    }
+
+    </style>
+    """
+    st.markdown(page_background_color, unsafe_allow_html=True)
+
+    # project title
+    st.markdown(f'<h1 style="text-align: center;">Diabetes Prediction</h1>', unsafe_allow_html=True)
+
+
 # dataset from my Github
 df=pd.read_csv("https://raw.githubusercontent.com/gopiashokan/dataset/main/diabetes_prediction_dataset.csv")
 
@@ -33,9 +58,10 @@ y_pred = model.predict(x_test)
 accuracy = metrics.accuracy_score(y_test,y_pred)
 
 
-# project title & icon
-st.set_page_config(page_title='Diabetes Prediction', page_icon=':dna:')
-st.markdown(f'<h1 style="text-align: center;">Diabetes Prediction</h1>', unsafe_allow_html=True)
+
+
+# stresmlit title and icon
+streamlit_config()
 
 col1, col2 = st.columns(2, gap='large')
 
