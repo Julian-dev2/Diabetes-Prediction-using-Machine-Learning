@@ -95,4 +95,4 @@ This project is licensed under the MIT License. Please review the LICENSE file f
 
 For any further questions or inquiries, feel free to reach out. We are happy to assist you with any queries.
 
-![Streamlit Application](https://github.com/gopiashokan/Diabetes-Prediction-using-Machine-Learning/raw/main/streamlit_application.jpg)
+![](https://github.com/gopiashokan/Diabetes-Prediction-using-Machine-Learning/blob/main/streamlit_application.JPG)
