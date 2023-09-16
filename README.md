@@ -71,8 +71,7 @@ The predictive model has demonstrated exceptional performance, boasting an accur
 
 **Accessibility**
 
-- The Streamlit application is readily accessible through the following link: 
-Link: [https://gopiashokan-diabetes-prediction.streamlit.app/](https://gopiashokan-diabetes-prediction.streamlit.app/). 
+- The Streamlit application is readily accessible through the following link: [https://gopiashokan-diabetes-prediction.streamlit.app/](https://gopiashokan-diabetes-prediction.streamlit.app/). 
 
 - Users can conveniently access the tool in their web browsers, making it easily available for healthcare professionals and individuals concerned about diabetes risk.
 
