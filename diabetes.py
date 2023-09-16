@@ -9,30 +9,6 @@ import warnings
 warnings.filterwarnings("ignore", category=UserWarning)
 
 
-def streamlit_config():
-    # streamlit 
-    st.set_page_config(page_title='Diabetes Prediction', page_icon=':dna:')
-
-    # page background color
-    page_background_color = """
-    <style>
-
-    [data-testid="stAppViewContainer"] {
-    # background-color: rgba(14,17,23,255);
-    }
-
-    [data-testid="stHeader"] {
-    background: rgba(0,0,0,0);
-    }
-
-    </style>
-    """
-    st.markdown(page_background_color, unsafe_allow_html=True)
-
-    # project title
-    st.markdown(f'<h1 style="text-align: center;">Diabetes Prediction</h1>', unsafe_allow_html=True)
-
-
 # dataset from my Github
 df=pd.read_csv("https://raw.githubusercontent.com/gopiashokan/dataset/main/diabetes_prediction_dataset.csv")
 
@@ -59,9 +35,8 @@ accuracy = metrics.accuracy_score(y_test,y_pred)
 
 
 
-
-# stresmlit title and icon
-streamlit_config()
+st.set_page_config(page_title='Diabetes Prediction', page_icon=':dna:')
+st.markdown(f'<h1 style="text-align: center;">Diabetes Prediction</h1>', unsafe_allow_html=True)
 
 col1, col2 = st.columns(2, gap='large')
 
@@ -90,18 +65,29 @@ with col2:
     blood_glucose_level = st.text_input(label='Blood Glucose Level')
 
 st.write('')
-submit = st.button(label='Submit')
+st.write('')
+col1,col2 = st.columns([0.438,0.562])
+with col2:
+    submit = st.button(label='Submit')
 st.write('')
 
 if submit:
-    user_data = np.array( [[ gender_dict[gender], age, hypertension_dict[hypertension], heart_disease_dict[heart_disease],
-                            smoking_history_dict[smoking_history], bmi, hba1c_level, blood_glucose_level ]] )
+    try:
+        user_data = np.array( [[ gender_dict[gender], age, hypertension_dict[hypertension], heart_disease_dict[heart_disease],
+                                smoking_history_dict[smoking_history], bmi, hba1c_level, blood_glucose_level ]] )
 
-    test_result = model.predict(user_data)
+        test_result = model.predict(user_data)
 
-    if test_result[0] == 0:
-        st.success('Diabetes Result: Negative')
-        st.balloons()
+        if test_result[0] == 0:
+            col1,col2,col3 = st.columns([0.33,0.30,0.35])
+            with col2:
+                st.success('Diabetes Result: Negative')
+            st.balloons()
 
-    else:
-        st.error('Diabetes Result: Positive')
+        else:
+            col1,col2,col3 = st.columns([0.215,0.57,0.215])
+            with col2:
+                st.error('Diabetes Result: Positive (Please Consult with Doctor)')
+
+    except:
+        st.warning('Please fill the all required informations')
