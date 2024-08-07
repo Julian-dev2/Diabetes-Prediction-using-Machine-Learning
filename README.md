@@ -89,11 +89,11 @@ This project is licensed under the MIT License. Please review the LICENSE file f
 
 **Contact**
 
-📧 Email: gopiashokankiot@gmail.com 
+📧 Email: julian.deev@gmail.com 
 
-🌐 LinkedIn: [linkedin.com/in/gopiashokan](https://www.linkedin.com/in/gopiashokan)
+🌐 Telegram: [https://t.me/eh_die](EDDIE)
 
 For any further questions or inquiries, feel free to reach out. We are happy to assist you with any queries.
 
 
-![](https://github.com/gopiashokan/Diabetes-Prediction-using-Machine-Learning/blob/main/streamlit_application.JPG)
+
